@@ -1,0 +1,99 @@
+@import "vars";
+@import "mixins";
+
+.search-box {
+  form {
+    display: flex;
+    justify-content: center;
+    select {
+      width: 120px;
+      padding: 0 15px;
+      appearance: none;
+      border: 1px solid #ccc;
+      position: relative;
+      background: url("../images/board/down-filled-triangular-arrow.png") no-repeat right 15px top 50%;
+      background-size: 10px;
+    }
+    input {
+      height: 50px;
+      width: 300px;
+      margin: 0 10px;
+      border: 1px solid #ccc;
+      padding: 0 15px;
+    }
+    button {
+      padding: 0 30px;
+      text-align: center;
+      background-color: #111;
+      color: #fff;
+      font-size: 16px;
+    }
+  }
+}
+
+.bbs {
+  width: 100%;
+  margin-top: 50px;
+  &.list {
+    display: table;
+    border-top: 2px solid #111;
+
+    .bbs-header,
+    .bbs-body {
+      span {
+        display: table-cell;
+        text-align: center;
+        height: 60px;
+        vertical-align: middle;
+        border-bottom: 1px solid #ccc;
+        &.no {
+          width: 80px;
+        }
+        &.writer {
+          width: 150px;
+        }
+        &.date {
+          width: 120px;
+        }
+      }
+    }
+    .bbs-header {
+      display: table-header-group;
+      span {
+        border-bottom-color: #111;
+      }
+    }
+    .bbs-body {
+      display: table-row-group;
+      li {
+        display: table-row;
+        .subject {
+          text-align: left;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+}
+.bbs-pagination {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  a {
+    width: 40px;
+    height: 40px;
+    @include flex;
+    margin: 0 2px;
+    border: 1px solid #ccc;
+  }
+  ul {
+    display: flex;
+    .on {
+      a {
+        background-color: $main-color;
+        color: #fff;
+        border-color: $main-color;
+      }
+    }
+  }
+}

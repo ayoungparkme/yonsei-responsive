@@ -1,0 +1,26 @@
+<? include("../include/header.html"); ?>
+
+<div id="sub-visual" class="sub-visual0<?= $subIdx ?>">
+  <div class="container">
+    <h2 class="sub-title"><span><?= $subTitle ?></span></h2>
+    <div class="bg">
+      <div class="img"></div>
+    </div>
+  </div>
+</div>
+<nav id="lnb">
+  <div class="container">
+    <a href="./" class="home">홈</a>
+    <div class="lnb01 lnb-box">
+      <a href=""><?= $subTitle ?></a>
+      <? include("../include/lnb-depth01.html"); ?>
+    </div>
+    <div class="lnb02 lnb-box">
+      <a href=""><?= $contentsTitle ?></a>
+      <? include("../include/gnb0".$subIdx.".html"); ?>
+    </div>
+  </div>
+</nav>
+<div id="sub-contents-wrap">
+  <h3 class="contents-title"><?= $contentsTitle ?></h3>
+  <div id="sub-contents" class="<?= $class ?>">

@@ -297,6 +297,13 @@ button {
   opacity: 1;
 }
 
+@media all and (max-width: 1840px) {
+  #footer .container {
+    padding: 0 50px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
 @media all and (min-width: 1280px) {
   #header #gnb .list > li:hover .depth01 {
     background-color: #0467b3;
@@ -383,6 +390,22 @@ button {
     margin-right: 10px;
   }
 }
+@media all and (max-width: 980px) {
+  #footer .container {
+    padding: 0 20px;
+  }
+  #footer .addr-box .family-site {
+    bottom: 0;
+    margin-top: 50px;
+    position: relative;
+  }
+  #footer .util-box {
+    flex-direction: column;
+  }
+  #footer .util-box .copyright {
+    margin-top: 30px;
+  }
+}
 @media all and (max-width: 640px) {
   #header {
     height: 60px;
@@ -418,5 +441,22 @@ button {
   }
   #header .util .all-menu {
     margin-left: 20px;
+  }
+}
+@media all and (max-width: 480px) {
+  #footer {
+    padding: 30px 0;
+  }
+  #footer .addr-box {
+    line-height: 1.5;
+    font-size: 14px;
+  }
+  #footer .addr-box .tel {
+    display: flex;
+    flex-direction: column;
+  }
+  #footer .addr-box .tel .fax {
+    margin-top: 10px;
+    margin-left: 0;
   }
 }

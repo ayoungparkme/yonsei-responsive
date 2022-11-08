@@ -183,7 +183,7 @@
   margin-bottom: 30px;
   line-height: 1.5;
 }
-.section .title-box .more {
+.section .more {
   width: 200px;
   height: 60px;
   display: flex;
@@ -196,7 +196,7 @@
   font-weight: 700;
   font-size: 14px;
 }
-.section .title-box .more:after {
+.section .more:after {
   content: "\f061";
   font-family: "FontAwesome";
   display: block;
@@ -284,7 +284,9 @@
   font-size: 24px;
   margin-left: 10px;
 }
-
+#research .mobile-only {
+  display: none;
+}
 #fund .fund-list {
   border-top: 4px solid #111;
 }
@@ -334,6 +336,7 @@
   height: 100px;
   background-color: #0467b3;
   color: #fff;
+  flex-shrink: 0;
   flex-direction: column;
   display: flex;
   justify-content: center;
@@ -614,6 +617,9 @@
   }
 }
 @media all and (max-width: 1280px) {
+  .section {
+    padding: clamp(50px, 15.625vw, 200px) 0;
+  }
   #main-visual {
     position: relative;
   }
@@ -630,10 +636,24 @@
     flex-direction: column;
   }
   #research {
+    position: relative;
     padding: clamp(50px, 15.625vw, 200px) 0;
   }
   #research:before {
     width: 62.5vw;
+  }
+  #research .title-box .more {
+    display: none;
+  }
+  #research .mobile-only {
+    display: flex;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #research .container {
+    position: static;
   }
   #research .container .title-box {
     position: static;
@@ -650,6 +670,61 @@
   }
   #research .banner .mask {
     margin-left: 0;
+  }
+  #about .container {
+    flex-direction: column;
+  }
+  #department .contents-box {
+    flex-direction: column;
+  }
+  #department .contents-box .contents {
+    width: 100%;
+    margin-top: 50px;
+  }
+  #department .contents-box .contents:nth-child(1) {
+    margin-top: 0;
+  }
+  #community .container {
+    flex-direction: column;
+  }
+  #community .mask {
+    width: auto;
+    margin-top: 50px;
+  }
+  #community .mask li {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  #community .mask li img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #community .banner {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 50px;
+  }
+  #community .banner .link {
+    position: static;
+  }
+  #community .banner .link ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #community .banner .link ul li {
+    width: 40%;
+    flex-grow: 1;
+    margin: 5px;
+  }
+  #community .banner .link ul li a {
+    width: auto;
+    font-size: 16px;
+    padding-left: 20px;
   }
 }
 @media all and (max-width: 980px) {
@@ -697,6 +772,34 @@
     overflow: hidden;
     white-space: nowrap;
   }
+  #fund .fund-list li {
+    padding: 15px;
+  }
+  #fund .fund-list li .main {
+    flex-direction: column;
+  }
+  #fund .fund-list li .main .date {
+    margin-top: 10px;
+  }
+  #fund .fund-list li .contents .img-box {
+    display: none;
+  }
+  #about .container .title-box br {
+    content: "";
+  }
+  #about .container .title-box h2 {
+    font-size: clamp(22px, 5.8vw, 56px);
+  }
+  #about .container .title-box p {
+    font-size: clamp(14px, 1.85vw, 18px);
+  }
+  #about .container .organization {
+    width: 100%;
+  }
+  #about .container .organization ul {
+    margin: 0 -5px;
+    width: auto;
+  }
 }
 @media all and (max-width: 640px) {
   #main-visual .contents .news h3 {
@@ -720,5 +823,16 @@
   #main-visual .contents .notice .title-box {
     display: none;
     padding: 0 20px;
+  }
+  #about .container .organization ul li {
+    width: 40%;
+    flex-grow: 1;
+  }
+  #department .contents-box .contents ul li {
+    width: 40%;
+    flex-grow: 1;
+  }
+  #community .banner .link ul li {
+    width: 90%;
   }
 }

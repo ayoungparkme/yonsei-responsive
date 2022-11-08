@@ -179,23 +179,23 @@
       margin-bottom: 30px;
       line-height: 1.5;
     }
-    .more {
-      width: 200px;
-      height: 60px;
-      display: flex;
-      box-sizing: border-box;
-      background-color: $main-color;
-      color: #fff;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 30px;
-      font-weight: 700;
-      font-size: 14px;
-      &:after {
-        content: "\f061";
-        font-family: "FontAwesome";
-        display: block;
-      }
+  }
+  .more {
+    width: 200px;
+    height: 60px;
+    display: flex;
+    box-sizing: border-box;
+    background-color: $main-color;
+    color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    font-weight: 700;
+    font-size: 14px;
+    &:after {
+      content: "\f061";
+      font-family: "FontAwesome";
+      display: block;
     }
   }
 }
@@ -284,6 +284,11 @@
       }
     }
   }
+  .mobile-only {
+    display: none;
+  }
+  .more {
+  }
 }
 
 #fund {
@@ -337,6 +342,7 @@
           height: 100px;
           background-color: $main-color;
           color: #fff;
+          flex-shrink: 0;
           flex-direction: column;
           @include flex;
           border-radius: 10px;
@@ -629,6 +635,9 @@
 }
 
 @media all and (max-width: 1280px) {
+  .section {
+    padding: clamp(50px, 15.625vw, 200px) 0;
+  }
   #main-visual {
     position: relative;
     .mask {
@@ -645,11 +654,25 @@
     }
   }
   #research {
+    position: relative;
     padding: clamp(50px, 15.625vw, 200px) 0;
     &:before {
       width: 62.5vw;
     }
+    .title-box {
+      .more {
+        display: none;
+      }
+    }
+    .mobile-only {
+      display: flex;
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
     .container {
+      position: static;
       .title-box {
         position: static;
         width: 100%;
@@ -666,6 +689,80 @@
       width: 100%;
       .mask {
         margin-left: 0;
+      }
+    }
+  }
+  #fund {
+  }
+  #about {
+    .container {
+      flex-direction: column;
+    }
+  }
+  #department {
+    .contents-box {
+      flex-direction: column;
+      .contents {
+        width: 100%;
+        margin-top: 50px;
+        &:nth-child(1) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  #community {
+    .container {
+      flex-direction: column;
+    }
+    .mask {
+      width: auto;
+      margin-top: 50px;
+      li {
+        position: relative;
+        // &:before {
+        //   content: "";
+        //   display: block;
+        //   padding-top: 50%;
+        // }
+        // img {
+        //   position: absolute;
+        //   left: 0;
+        //   top: 0;
+        //   width: 100%;
+        //   height: 100%;
+        // }
+        width: 100%;
+        aspect-ratio: 2;
+        border-radius: 20px;
+        overflow: hidden;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    .banner {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-top: 50px;
+      .link {
+        position: static;
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          li {
+            width: 40%;
+            flex-grow: 1;
+            margin: 5px;
+            a {
+              width: auto;
+              font-size: 16px;
+              padding-left: 20px;
+            }
+          }
+        }
       }
     }
   }
@@ -722,6 +819,47 @@
       }
     }
   }
+  #fund {
+    .fund-list {
+      li {
+        padding: 15px;
+        .main {
+          flex-direction: column;
+          .date {
+            margin-top: 10px;
+          }
+        }
+        .contents {
+          .img-box {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  #about {
+    .container {
+      .title-box {
+        br {
+          content: "";
+        }
+        h2 {
+          font-size: clamp(22px, 5.8vw, 56px);
+        }
+        p {
+          font-size: clamp(14px, 1.85vw, 18px);
+        }
+      }
+      .organization {
+        width: 100%;
+        ul {
+          margin: 0 -5px;
+          //width: 100%;
+          width: auto;
+        }
+      }
+    }
+  }
 }
 @media all and (max-width: 640px) {
   #main-visual {
@@ -748,6 +886,35 @@
           padding: 0 20px;
         }
       }
+    }
+  }
+  #about {
+    .container {
+      .organization {
+        ul {
+          li {
+            width: 40%;
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+  }
+  #department {
+    .contents-box {
+      .contents {
+        ul {
+          li {
+            width: 40%;
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+  }
+  #community {
+    .banner .link ul li {
+      width: 90%;
     }
   }
 }

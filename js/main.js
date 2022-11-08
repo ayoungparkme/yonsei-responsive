@@ -47,7 +47,6 @@ new Swiper("#research .mask", {
     nextEl: "#research .btn-next",
   },
   breakpoints: {
-    // when window width is >= 640px
     640: {
       slidesPerView: 2,
     },
@@ -90,33 +89,22 @@ gsap.from("#main-visual .title .char", {
   duration: 1.5,
   ease: "bounce",
   stagger: {
-    //each: 0.05,
     amount: 1.5,
     from: "random",
   },
 });
-//gsap.from();
-//document.querySelector("#vid").disablePictureInPicture = true;
 
 const now = new Date();
 const date = now.getDate();
 const day = now.getDay();
 const month = now.getMonth();
-console.log("🚀 ~ file: index.html ~ line 477 ~ month", month);
 
 const days = ["일", "월", "화", "수", "목", "금", "토"];
 const months = ["Feb", "Apr", "", "", "", "", "", "", "", "Oct"];
-console.log(days[day]);
-console.log(months[month]);
-// if (day === 0) {
-//   console.log("일요일");
-// } else if (day === 1) {
-//   console.log("화요일");
-// }
 
 const fundList = document.querySelectorAll(".fund-list li");
 const total = fundList.length;
-console.log("🚀 ~ file: index.html ~ line 511 ~ total", total);
+
 for (let i = 0; i < total; i++) {
   fundList[i].addEventListener("click", function () {
     for (let j = 0; j < total; j++) {
